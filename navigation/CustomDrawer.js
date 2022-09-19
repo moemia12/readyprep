@@ -10,7 +10,7 @@ const CustomDrawer = () => {
       <View
         style={{
           flex: 1,
-          backgroundColor: 'green',
+          backgroundColor: 'black',
         }}>
         <Drawer.Navigator
           drawerType="slide"
