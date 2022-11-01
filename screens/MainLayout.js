@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { COLORS } from '../constants';
 
 const MainLayout = () => {
   return (
@@ -8,8 +9,9 @@ const MainLayout = () => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: COLORS.primary
       }}>
-      <Text>MainLayoutlol</Text>
+      <Text>MainLayout</Text>
     </View>
   );
 };

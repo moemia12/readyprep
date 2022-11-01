@@ -9,8 +9,13 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="CustomDrawer" component={CustomDrawer}/>
+      <Stack.Navigator
+        screenOptions={{
+        headerShown: false
+        }}
+      initialRouteName={'Home'}
+      >
+        <Stack.Screen name="Home" component={CustomDrawer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
