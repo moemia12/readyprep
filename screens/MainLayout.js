@@ -9,7 +9,7 @@ const MainLayout = () => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: COLORS.primary
+        backgroundColor: 'white',
       }}>
       <Text>MainLayout</Text>
     </View>

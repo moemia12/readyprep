@@ -98,7 +98,7 @@ const CustomDrawerContent = ({ navigation }) => {
           style={{
             color: COLORS.black,
             fontWeight: 'bold',
-            fontSize: 16
+            fontSize: 16,
           }}>
           {dummyData.myProfile?.name}
         </Text>
@@ -147,13 +147,22 @@ const CustomDrawerContent = ({ navigation }) => {
         {/* Track your Order */}
         <CustomDrawerItem label="Help Center" icon={icons.help} />
       </View>
+
+      <View
+        style={{
+          marginTop: 130,
+          marginLeft: SIZES.radius,
+        }}>
+        {/* Logout */}
+        <CustomDrawerItem label="Logout" icon={icons.logout} />
+      </View>
     </SafeAreaView>
   );
 }
 
 const CustomDrawer = () => {
     return (
-      <View style={{flex: 1, backgroundColor: COLORS.primary}}>
+      <View style={{flex: 1, backgroundColor: 'COLORS.primary'}}>
         <Drawer.Navigator
           drawerType="slide"
           overlayColor="transparent"
@@ -163,7 +172,9 @@ const CustomDrawer = () => {
             paddingRight: 20,
             backgroundColor: 'transparent',
           }}
-          sceneContainerStyle="transparent"
+          sceneContainerStyle={{
+            backgroundColor: "transparent"
+          }}
           initialRouteName="MainLayout"
           screenOptions={{
             headerShown: false,
@@ -175,7 +186,9 @@ const CustomDrawer = () => {
             );
           }}>
           <Drawer.Screen name="MainLayout">
-            {props => <MainLayout {...props} />}
+            {props => (
+              <MainLayout {...props} />
+            )}
           </Drawer.Screen>
         </Drawer.Navigator>
       </View>
