@@ -5,7 +5,7 @@ export const setSelectedTabSuccess = (selectedTab) => ({
     payload: { selectedTab }
 })
 
-export function setSelectedTab(selectedTab) {
+export function setSelectedTab(selectedTab){
     return dispatch => {
         dispatch(setSelectedTabSuccess(selectedTab))
     }

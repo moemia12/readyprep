@@ -3,6 +3,8 @@ import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native'
 import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigation/drawer'
 import { MainLayout } from '../screens'
 import { COLORS, FONTS, SIZES, constants, icons, dummyData } from '../constants'
+import { connect } from 'react-redux'
+import { setSelectedTab } from '../stores/tab/tabActions'
 
 
 const Drawer = createDrawerNavigator()
@@ -39,7 +41,7 @@ const CustomDrawerItem = ({ label, icon }) => {
   );
 }
 
-const CustomDrawerContent = ({ navigation }) => {
+const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
   return (
     <SafeAreaView>
       <View
@@ -160,7 +162,7 @@ const CustomDrawerContent = ({ navigation }) => {
   );
 }
 
-const CustomDrawer = () => {
+const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
     return (
       <View style={{flex: 1, backgroundColor: 'COLORS.primary'}}>
         <Drawer.Navigator
@@ -182,7 +184,10 @@ const CustomDrawer = () => {
           drawerContent={props => {
             return (
               <CustomDrawerContent
-                navigation={props.navigation}></CustomDrawerContent>
+                navigation={props.navigation}
+                selectedTab={selectedTab}
+                setSelectedTab={setSelectedTab}
+              />
             );
           }}>
           <Drawer.Screen name="MainLayout">
@@ -195,4 +200,19 @@ const CustomDrawer = () => {
     );
 }
 
-export default CustomDrawer
+function mapStateToProps(state) {
+  return {
+    selectedTab: state.tabReducer.selectedTab
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setSelectedTab: (selectedTab) => {
+      return dispatch(setSelectedTab(selectedTab))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)
+  (CustomDrawer)
