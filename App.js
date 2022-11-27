@@ -4,22 +4,25 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomDrawer from './navigation/CustomDrawer';
 
-import { applyMiddleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
+import tabReducer from './stores/tab/tabReducer'
 import rootReducer from './stores/tab/rootReducer';
 
 const Stack = createStackNavigator();
 
-const store = configureStore(
-  //rootReducer,
-  applyMiddleware(thunk)
+const store = configureStore({
+  reducer: {
+    rootReducer: rootReducer
+  },
+  middleware: [thunk]
+} 
 )
 
 const App = () => {
   return (
-    //<Provider store={store}>
+    <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
@@ -29,7 +32,7 @@ const App = () => {
           <Stack.Screen name="Home" component={CustomDrawer} />
         </Stack.Navigator>
       </NavigationContainer>
-    //</Provider>
+    </Provider>
   );
 };
 
