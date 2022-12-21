@@ -9,7 +9,7 @@ import { setSelectedTab } from '../stores/tab/tabActions'
 
 const Drawer = createDrawerNavigator()
 
-const CustomDrawerItem = ({ label, icon }) => {
+const CustomDrawerItem = ({ label, icon, isFocus, onPress }) => {
   return (
     <TouchableOpacity
       style={{
@@ -19,9 +19,9 @@ const CustomDrawerItem = ({ label, icon }) => {
         alignItems: 'center',
         paddingLeft: SIZES.radius,
         borderRadius: SIZES.base,
-        // backgroundColor
+        backgroundColor: isFocus ? 'red' : null
       }}
-      // onPress
+      onPress={onPress}
     >
       <Image
         source={icon}
@@ -113,7 +113,15 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
           marginLeft: SIZES.radius,
         }}>
         {/* Home */}
-        <CustomDrawerItem label={constants.screens.home} icon={icons.home} />
+        <CustomDrawerItem
+          label={constants.screens.home}
+          icon={icons.home}
+          isFocus={selectedTab == constants.screens.home}
+          onPress={() => {
+            setSelectedTab(constants.screens.home)
+            navigation.navigate('MainLayout')
+        }}
+        />
         {/* My Wallet */}
         <CustomDrawerItem
           label={constants.screens.myWallet}

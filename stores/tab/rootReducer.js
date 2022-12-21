@@ -1,8 +1,9 @@
-import {combineReducers } from '@reduxjs/toolkit'
+import { combineReducers } from '@reduxjs/toolkit'
+
 import tabReducer from './tabReducer'
 
-export default combineReducers({
-    reducer: {
-        tab: tabReducer,
-    }
-})
+const rootReducer = combineReducers({
+ tab: tabReducer,
+});
+
+export default rootReducer
