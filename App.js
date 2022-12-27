@@ -3,8 +3,13 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomDrawer from './navigation/CustomDrawer';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 
 const Stack = createStackNavigator();
+const store = configureStore({
+  reducer: {}
+})
 
 const App = () => {
   return (
