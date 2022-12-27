@@ -12,10 +12,9 @@ import rootReducer from './stores/tab/rootReducer';
 
 const Stack = createStackNavigator();
 
-const store = configureStore(
-  rootReducer,
-  applyMiddleware(thunk)
-)
+const store = configureStore({
+  reducer : {rootReducer}
+})
 
 const App = () => {
   return (

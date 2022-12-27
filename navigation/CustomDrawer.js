@@ -9,7 +9,7 @@ import { setSelectedTab } from '../stores/tab/tabActions'
 
 const Drawer = createDrawerNavigator()
 
-const CustomDrawerItem = ({ label, icon, isFocus, onPress }) => {
+const CustomDrawerItem = ({ label, icon, isFocused, onPress }) => {
   return (
     <TouchableOpacity
       style={{
@@ -19,7 +19,7 @@ const CustomDrawerItem = ({ label, icon, isFocus, onPress }) => {
         alignItems: 'center',
         paddingLeft: SIZES.radius,
         borderRadius: SIZES.base,
-        backgroundColor: isFocus ? 'red' : null
+        backgroundColor: isFocused ? 'red' : null
       }}
       onPress={onPress}
     >
@@ -116,7 +116,7 @@ const CustomDrawerContent = ({ navigation, selectedTab, setSelectedTab }) => {
         <CustomDrawerItem
           label={constants.screens.home}
           icon={icons.home}
-          isFocus={selectedTab == constants.screens.home}
+          isFocused={selectedTab == constants.screens.home}
           onPress={() => {
             setSelectedTab(constants.screens.home)
             navigation.navigate('MainLayout')
@@ -175,15 +175,15 @@ const CustomDrawer = ({ selectedTab, setSelectedTab }) => {
       <View style={{flex: 1, backgroundColor: 'COLORS.primary'}}>
         <Drawer.Navigator
           drawerType="slide"
-          overlayColor="transparent"
+          overlayColor="red"
           drawerStyle={{
             flex: 1,
             width: '65%',
             paddingRight: 20,
-            backgroundColor: 'transparent',
+            backgroundColor: 'red',
           }}
           sceneContainerStyle={{
-            backgroundColor: "transparent"
+            backgroundColor: "red"
           }}
           initialRouteName="MainLayout"
           screenOptions={{
