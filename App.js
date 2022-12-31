@@ -3,17 +3,17 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomDrawer from './navigation/CustomDrawer';
-
-import { applyMiddleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk'
-import rootReducer from './stores/tab/rootReducer';
+import tabReducer from './stores/tab/tabReducer'
+
 
 const Stack = createStackNavigator();
 
 const store = configureStore({
-  reducer : {rootReducer}
+  reducer: {
+    tab: tabReducer
+  }
 })
 
 const App = () => {

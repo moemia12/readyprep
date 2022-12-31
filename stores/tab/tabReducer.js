@@ -1,19 +1,21 @@
-import * as tabActionTypes from './tabActions'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    selectedTab: ''
+    selectedTab: 'Home'
 }
 
-const tabReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case tabActionTypes.SET_SELECTED_TAB:
-            return {
-                ...state,
-                selectedTab: action.payload.selectedTab
-            }
-        default:
-            return state
-    }
-}
+export const tabSlice = createSlice({
+  name: 'switchTabs',
+  initialState: initialState,
+  reducers: {
+    switchTabs: (state, action) => ({
+      ...state,
+      selectedTab: action.payload,
+    })
+  },
+});
 
-export default tabReducer
+export const { switchTabs } = tabSlice.actions
+
+export default tabSlice.reducer
+
