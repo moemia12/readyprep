@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { COLORS } from '../constants';
+import { COLORS, FONTS, SIZES, icons, constants, dummyData } from '../constants';
+import { Home, Search, CartTab, Favourite, Notification}
 
 const MainLayout = () => {
   return (
