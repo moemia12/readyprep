@@ -10,6 +10,7 @@ import tabReducer from './stores/tab/tabReducer'
 
 const Stack = createStackNavigator();
 
+
 const store = configureStore({
   reducer: {
     tab: tabReducer

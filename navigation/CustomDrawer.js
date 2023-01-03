@@ -1,7 +1,8 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native'
 import { createDrawerNavigator } from '@react-navigation/drawer'
-import { MainLayout } from '../screens'
+import { MainLayout, CartTab, Favourite, Home, Search, MyWallet } from '../screens'
+import Notification from '../screens/Notification/Notification'
 import { COLORS, FONTS, SIZES, constants, icons, dummyData } from '../constants'
 import {useSelector, useDispatch} from 'react-redux';
 import { switchTabs } from '../stores/tab/tabReducer'
@@ -121,7 +122,7 @@ const CustomDrawerContent = ({ navigation, selectedTab }) => {
           isFocused={selectedTab == constants.screens.home}
           onPress={() => {
             dispatch(switchTabs(constants.screens.home));
-            navigation.navigate('MainLayout');
+            navigation.navigate('Home');
           }}
         />
         {/* My Wallet */}
@@ -131,7 +132,7 @@ const CustomDrawerContent = ({ navigation, selectedTab }) => {
           isFocused={selectedTab == constants.screens.myWallet}
           onPress={() => {
             dispatch(switchTabs(constants.screens.myWallet));
-            navigation.navigate('MainLayout');
+            navigation.navigate('MyWallet');
           }}
         />
         {/* Notification */}
@@ -141,7 +142,7 @@ const CustomDrawerContent = ({ navigation, selectedTab }) => {
           isFocused={selectedTab == constants.screens.notification}
           onPress={() => {
             dispatch(switchTabs(constants.screens.notification));
-            navigation.navigate('MainLayout');
+            navigation.navigate('Notification');
           }}
         />
         {/* Favourite */}
@@ -151,7 +152,7 @@ const CustomDrawerContent = ({ navigation, selectedTab }) => {
           isFocused={selectedTab == constants.screens.favourite}
           onPress={() => {
             dispatch(switchTabs(constants.screens.favourite));
-            navigation.navigate('MainLayout');
+            navigation.navigate('Favourite');
           }}
         />
 
@@ -204,7 +205,7 @@ const CustomDrawer = ({ }) => {
             backgroundColor: 'red',
           }}
           sceneContainerStyle={{
-            backgroundColor: "red"
+            backgroundColor: 'red',
           }}
           initialRouteName="MainLayout"
           screenOptions={{
@@ -219,9 +220,19 @@ const CustomDrawer = ({ }) => {
             );
           }}>
           <Drawer.Screen name="MainLayout">
-            {props => (
-              <MainLayout {...props} />
-            )}
+            {props => <MainLayout {...props} />}
+          </Drawer.Screen>
+          <Drawer.Screen name="Home">
+            {props => <Home {...props} />}
+          </Drawer.Screen>
+          <Drawer.Screen name="MyWallet">
+            {props => <MyWallet {...props} />}
+          </Drawer.Screen>
+          <Drawer.Screen name="Notification">
+            {props => <Notification {...props} />}
+          </Drawer.Screen>
+          <Drawer.Screen name="Favourite">
+            {props => <Favourite {...props} />}
           </Drawer.Screen>
         </Drawer.Navigator>
       </View>

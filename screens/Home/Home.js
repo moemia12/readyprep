@@ -1,16 +1,44 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
+import { COLORS, icons, SIZES } from '../../constants';
+import MainLayout from '../MainLayout';
 
-const Home = () => {
+const Home = ({navigation, screen}) => {
+
+  function renderSearch() {
+    return (
+      <View
+        style={{
+          flexDirection: 'row',
+          height: 40,
+          alignItems: 'center',
+          marginHorizontal: SIZES.padding,
+          marginVertical: SIZES.base,
+          paddingHorizontal: SIZES.radius,
+          borderRadius: SIZES.radius,
+          backgroundColor: COLORS.lightGray2
+      }}
+      >
+        {/* Icon */}
+        <Image
+          source={icons.search}
+          style={{
+            height: 20,
+            width: 20,
+            tintColor: COLORS.black
+          }}
+        />
+        {/* Text Input */}
+
+        {/* Filter Button */}
+
+      </View>
+    )
+  }
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      <Text>Home</Text>
-    </View>
+    <MainLayout navigation={navigation}>
+      {renderSearch()}
+    </MainLayout>
   );
 };
 
