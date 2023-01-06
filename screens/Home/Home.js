@@ -2,8 +2,10 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import { COLORS, icons, SIZES } from '../../constants';
 import MainLayout from '../MainLayout';
+import Menu from '../../components/Menu'
 
-const Home = ({navigation, screen}) => {
+
+const Home = ({ navigation, screen }) => {
 
   function renderSearch() {
     return (
@@ -38,6 +40,7 @@ const Home = ({navigation, screen}) => {
   return (
     <MainLayout navigation={navigation}>
       {renderSearch()}
+      <Menu />
     </MainLayout>
   );
 };

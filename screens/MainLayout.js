@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { COLORS, FONTS, SIZES, icons, constants, dummyData } from '../constants';
-import { Home, Search, CartTab, Favourite, Notification } from '../screens'
 import { Header } from '../components';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
@@ -37,7 +36,7 @@ const MainLayout = ({navigation, children}) => {
               borderColor: COLORS.gray2,
               borderRadius: SIZES.radius,
             }}
-            onPress={() => navigation.openDrawer()}>
+            onPress={() => { navigation.openDrawer(); console.log('fgg')}}>
             <Image source={icons.menu} />
           </TouchableOpacity>
         }
