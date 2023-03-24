@@ -36,7 +36,10 @@ const MainLayout = ({navigation, children}) => {
               borderColor: COLORS.gray2,
               borderRadius: SIZES.radius,
             }}
-            onPress={() => { navigation.openDrawer(); console.log('fgg')}}>
+            onPress={() => {
+              navigation.openDrawer();
+              console.log('fgg');
+            }}>
             <Image source={icons.menu} />
           </TouchableOpacity>
         }
@@ -60,11 +63,7 @@ const MainLayout = ({navigation, children}) => {
       />
 
       {/* Content */}
-      {children}
-      <Text
-        style={{
-          flex: 1,
-        }}></Text>
+      <View style={{flex: 1}}>{children}</View>
 
       {/*  Footer */}
       <View
